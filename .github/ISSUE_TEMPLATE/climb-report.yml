@@ -1,0 +1,56 @@
+name: Climb report
+description: A correction, local knowledge, or photos for a climb on howsteep.org
+title: "[climb] "
+labels: ["climb-report"]
+body:
+  - type: input
+    id: climb-url
+    attributes:
+      label: Climb page
+      description: Paste the howsteep.org link (or say "missing climb" and tell us where).
+      placeholder: https://howsteep.org/climb/…
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: What kind of report?
+      options:
+        - Gradient sign (new, changed, or one you don't show)
+        - Not a public road (gate / private / unsurfaced)
+        - Wrong or missing name (what do locals call it?)
+        - Route is wrong (start/end/line)
+        - Missing climb
+        - Measurement looks wrong
+        - Photos / general local knowledge
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: What did you observe?
+      description: >
+        Signs: the number on it. Names: what it's called and by whom.
+        Roads: what's actually there. Drag photos straight into this box —
+        a picture of a sign or a gate settles things instantly.
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: When did you see it?
+      description: Signs get repainted and gates appear — the date is part of the fact.
+      placeholder: e.g. August 2026
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: Credit (optional)
+      description: Name/handle to credit if we use your report. Leave blank to stay anonymous.
+  - type: checkboxes
+    id: permission
+    attributes:
+      label: Photo permission
+      options:
+        - label: Any photos attached are mine, and howsteep.org may publish them with the credit above.
