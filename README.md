@@ -27,6 +27,16 @@ data and open road datasets. Despite extensive computational
 verification, some can still be artifacts of the terrain model or the
 map — that's exactly what your reports help fix.
 
+## The OCL format
+
+The site's measurements are published in **OpenClimb Ladder (OCL)** — a
+data format in which a maximum gradient *cannot be expressed without its
+measurement distance*. The schema forbids windowless maxima; that is the
+point. Spec: [spec/OCL.md](spec/OCL.md) · normative JSON Schema:
+[schema/ocl-climb.schema.json](schema/ocl-climb.schema.json) · live
+example: any climb page on [howsteep.org](https://howsteep.org) links its
+own OCL document. Comments and implementations welcome — open an issue.
+
 ## Data & licences
 
 Measurements are derived from open data: Welsh Government and

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/wu2c-peter/uk-climbs/schema/ocl-climb.schema.json",
+  "title": "OpenClimb Ladder climb document",
+  "type": "object",
+  "required": [
+    "ocl_version",
+    "name",
+    "slug",
+    "length_m",
+    "endpoint_gain_m",
+    "overall_gradient_pct",
+    "ladder",
+    "provenance"
+  ],
+  "properties": {
+    "ocl_version": {"type": "string", "pattern": "^0\\.1\\.[0-9]+$"},
+    "name": {"type": "string", "minLength": 1},
+    "slug": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "length_m": {"type": "number", "exclusiveMinimum": 0},
+    "endpoint_gain_m": {"type": "number"},
+    "overall_gradient_pct": {"type": "number"},
+    "accumulated_ascent_m": {"type": "number"},
+    "quality_grade": {"enum": ["A", "B", "C", "D", "U"]},
+    "ladder": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["window_m", "max_gradient_pct", "diagnostic"],
+        "properties": {
+          "window_m": {"type": "number", "exclusiveMinimum": 0},
+          "max_gradient_pct": {"type": "number"},
+          "min_gradient_pct": {"type": "number"},
+          "diagnostic": {"type": "boolean"},
+          "start_distance_m": {"type": "number"},
+          "end_distance_m": {"type": "number"},
+          "start_elevation_m": {"type": "number"},
+          "end_elevation_m": {"type": "number"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "analysis_version",
+        "elevation_resolution_m",
+        "sample_interval_m",
+        "interpolation"
+      ],
+      "properties": {
+        "analysis_version": {"type": "string"},
+        "elevation_resolution_m": {"type": "number"},
+        "sample_interval_m": {"type": "number"},
+        "interpolation": {"type": "string"},
+        "smoothing": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "reported_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_name", "value_pct", "evidence_type"],
+        "properties": {
+          "source_name": {"type": "string"},
+          "value_pct": {"type": "number"},
+          "evidence_type": {
+            "enum": ["road_sign", "event_description", "cycling_database",
+                     "gps_segment", "manual_measurement", "inclinometer",
+                     "survey", "mapper_estimate", "other"]
+          },
+          "claimed_window_m": {"type": ["number", "null"]},
+          "credibility": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "max_gradient": false,
+    "max_gradient_pct": false,
+    "maximum_gradient": false
+  },
+  "additionalProperties": true
+}
