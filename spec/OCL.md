@@ -59,7 +59,8 @@ Normative schema: [`schema/ocl-climb.schema.json`](../schema/ocl-climb.schema.js
      "start_distance_m": 41.0, "end_distance_m": 66.0}
     // ... one entry per window, ascending
   ],
-  "quality_grade": "A",            // A/B/C/D/U, see grading section
+  "confidence": "A",               // measurement confidence A/B/C/D/U —
+                                   // NOT a gradient category; see below
   "provenance": {
     "analysis_version": "…",
     "road_source": "OpenStreetMap",
@@ -100,14 +101,20 @@ Normative schema: [`schema/ocl-climb.schema.json`](../schema/ocl-climb.schema.js
    copy claims into measured fields.
 5. **R5 — endpoint overall.** `overall_gradient_pct` MUST be computed
    from endpoint elevation difference over plan length.
-6. **R6 — display precision.** Gradients SHOULD be displayed at one
-   decimal place; stored values MAY carry full precision.
+6. **R6 — display precision.** Displayed precision SHOULD be
+   consistent with window uncertainty: whole percent for windows of
+   10 m and below (raster noise there is >=1 pp), one decimal place
+   for longer windows and overall values. Stored values MAY carry full
+   precision.
 7. **R7 — terrain labelling.** DTM-derived values MUST NOT be described
    as surveyed road-surface gradients.
 
-## Quality grades
+## Measurement confidence
 
-An overall measurement-condition grade, carried in `quality_grade`.
+An overall statement of how much trust to place in the measurement,
+carried in `confidence`. Deliberately NOT called "grade" or
+"category" — in cycling both words mean the gradient itself; this
+letter describes the *evidence for the numbers*, never the hill.
 Two axes: source resolution and how much quality intervention the
 standard (ranking-eligible) windows needed.
 
@@ -120,7 +127,7 @@ standard (ranking-eligible) windows needed.
 - `D` — coarse fallback (>5 m); short-window maxima suppressed.
 - `U` — open human-review flags: the numbers await scrutiny.
 
-Extent flags do not affect the grade — they question the climb's
+Extent flags do not affect confidence — they question the climb's
 definition, not the measurement. Rankings SHOULD default to A/B.
 
 ## Versioning
