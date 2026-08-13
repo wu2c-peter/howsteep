@@ -1,0 +1,35 @@
+# Acknowledge site-form reports.
+#
+# Form-filed issues are authored by the site's own token (the reporter
+# has no GitHub account), and GitHub never notifies you of your own
+# actions — so without this, form reports arrive silently. A comment
+# from the Actions bot is a different actor, which (a) triggers the
+# maintainer's participating-notification email and (b) tells the
+# reporter a human is in the loop.
+name: Acknowledge site reports
+on:
+  issues:
+    types: [opened]
+permissions:
+  issues: write
+jobs:
+  ack:
+    if: contains(github.event.issue.labels.*.name, 'site-report')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: [
+                "Thanks — report received. A human reviews every report;",
+                "on-the-ground observations outrank everything in the survey.",
+                "",
+                "If you have a photo of a sign or the road, you can attach it",
+                "in a comment here (needs a GitHub login), or just wait — we",
+                "may follow up on this thread if the report needs one.",
+              ].join("\n"),
+            })
