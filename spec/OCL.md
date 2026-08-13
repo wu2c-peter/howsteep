@@ -66,7 +66,7 @@ Normative schema: [`schema/ocl-climb.schema.json`](../schema/ocl-climb.schema.js
     "osm_ids": [218612917, 103333437],
     "elevation_provider": "Welsh Government",
     "elevation_resolution_m": 1,
-    "horizontal_crs": "EPSG:27700",
+    "elevation_crs": "EPSG:27700",
     "sample_interval_m": 1,
     "interpolation": "bilinear",
     "smoothing": "none"
@@ -74,6 +74,11 @@ Normative schema: [`schema/ocl-climb.schema.json`](../schema/ocl-climb.schema.js
   "reported_claims": [             // optional; claims, not measurements
     {"source_name": "Road sign (current)", "value_pct": 32,
      "evidence_type": "road_sign", "claimed_window_m": null,
+     "observed_via": "osm_tag_history",  // optional: how the observation
+                                         // reached the producer — a sign
+                                         // documented via OSM history is
+                                         // strong evidence, but not a
+                                         // photographed sign
      "credibility": "…"}
   ]
 }
@@ -102,9 +107,21 @@ Normative schema: [`schema/ocl-climb.schema.json`](../schema/ocl-climb.schema.js
 
 ## Quality grades
 
-`A` ≤1 m DTM, verified centreline, clean coverage · `B` ≤2 m DTM ·
-`C` 2–5 m source · `D` coarse fallback, short-window maxima suppressed ·
-`U` unresolved. Rankings SHOULD default to A/B.
+An overall measurement-condition grade, carried in `quality_grade`.
+Two axes: source resolution and how much quality intervention the
+standard (ranking-eligible) windows needed.
+
+- `A` — ≤1 m source, standard windows clean: no canopy/structure flags,
+  no re-sited maxima, nothing unresolved.
+- `B` — ≤2 m source, or a ≤1 m source with interventions on standard
+  windows (canopy/structure flags, re-sited maxima).
+- `C` — 2–5 m source, or standard windows left unresolved by
+  suppression (no clean placement of the window existed).
+- `D` — coarse fallback (>5 m); short-window maxima suppressed.
+- `U` — open human-review flags: the numbers await scrutiny.
+
+Extent flags do not affect the grade — they question the climb's
+definition, not the measurement. Rankings SHOULD default to A/B.
 
 ## Versioning
 

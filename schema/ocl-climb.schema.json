@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/wu2c-peter/uk-climbs/schema/ocl-climb.schema.json",
+  "$id": "https://github.com/wu2c-peter/howsteep/schema/ocl-climb.schema.json",
   "title": "OpenClimb Ladder climb document",
   "type": "object",
   "required": [
@@ -45,13 +45,19 @@
       "type": "object",
       "required": [
         "analysis_version",
+        "road_source",
+        "elevation_provider",
         "elevation_resolution_m",
+        "elevation_crs",
         "sample_interval_m",
         "interpolation"
       ],
       "properties": {
         "analysis_version": {"type": "string"},
+        "road_source": {"type": "string"},
+        "elevation_provider": {"type": "string"},
         "elevation_resolution_m": {"type": "number"},
+        "elevation_crs": {"type": "string"},
         "sample_interval_m": {"type": "number"},
         "interpolation": {"type": "string"},
         "smoothing": {"type": "string"}
@@ -72,7 +78,10 @@
                      "survey", "mapper_estimate", "other"]
           },
           "claimed_window_m": {"type": ["number", "null"]},
-          "credibility": {"type": "string"}
+          "credibility": {"type": "string"},
+          "observed_via": {
+            "enum": ["in_person", "photo", "osm_tag_history"]
+          }
         },
         "additionalProperties": true
       }
