@@ -120,11 +120,11 @@ standard (ranking-eligible) windows needed.
 
 - `A` — ≤1 m source, standard windows clean: no canopy/structure flags,
   no re-sited maxima, nothing unresolved.
-- `B` — ≤2 m source, or a ≤1 m source with interventions on standard
-  windows (canopy/structure flags, re-sited maxima).
-- `C` — 2–5 m source, or standard windows left unresolved by
+- `B` — source in (1 m, 2 m], or a ≤1 m source with interventions on
+  standard windows (canopy/structure flags, re-sited maxima).
+- `C` — source in (2 m, 5 m], or standard windows left unresolved by
   suppression (no clean placement of the window existed).
-- `D` — coarse fallback (>5 m); short-window maxima suppressed.
+- `D` — source coarser than 5 m; short-window maxima suppressed.
 - `U` — open human-review flags: the numbers await scrutiny.
 
 Extent flags do not affect confidence — they question the climb's
