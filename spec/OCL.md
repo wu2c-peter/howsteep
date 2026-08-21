@@ -29,7 +29,15 @@ set of explicit plan-distance windows, in metres:
 | 200, 500, 1000 m | *extended* — optional, for long climbs |
 
 **Plan distance.** All windows are horizontal distances along the
-projected centreline, not 3-D surface distances.
+projected centreline, not 3-D surface distances. On a curve the window
+follows the arc of the centreline — a window is w metres of path, not
+a w-metre straight chord.
+
+**Measurement line.** The line MUST be the carriageway centreline.
+Producers SHOULD declare the line's source and SHOULD verify its
+fidelity against an independent road-network dataset: a line that cuts
+the inside of a bend under-runs the true arc and samples ground the
+road does not occupy, inflating every window that lands there.
 
 **Window gradient.** `gradient(d, w) = 100 × (elev(d+w) − elev(d)) / w`,
 a forward window on a uniform sampling grid. Overall gradient uses
@@ -138,7 +146,11 @@ everything is open for comment.
 
 ## Licence and attribution
 
-The OCL specification is released under CC BY 4.0. Datasets published in
-OCL carry their own licences; documents derived from OpenStreetMap
-geometry inherit ODbL obligations, and producers MUST retain the
-attribution fields in `provenance`.
+The OCL specification is released under CC BY 4.0; the normative JSON
+Schema is MIT-licensed. Datasets published in OCL carry their own
+licences; documents derived from OpenStreetMap geometry inherit ODbL
+obligations, and producers MUST retain the attribution fields in
+`provenance`. Producers SHOULD declare the document's licence in
+`provenance.license` (an SPDX identifier where one exists, e.g.
+`ODbL-1.0`) and MAY point `provenance.license_url` at a page with the
+full terms, so each document carries its own terms when it travels.

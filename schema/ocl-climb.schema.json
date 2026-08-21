@@ -57,6 +57,8 @@
         "analysis_version": {"type": "string"},
         "road_source": {"type": "string"},
         "elevation_provider": {"type": "string"},
+        "license": {"type": "string"},
+        "license_url": {"type": "string"},
         "elevation_resolution_m": {"type": "number"},
         "elevation_crs": {"type": "string"},
         "sample_interval_m": {"type": "number"},
