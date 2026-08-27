@@ -1,6 +1,6 @@
 # Licences
 
-This repository holds the public face of the UK Climb Survey
+This repository holds the public face of HowSteep
 ([howsteep.org](https://howsteep.org)). Different parts carry
 different licences:
 
@@ -24,7 +24,7 @@ Full terms and attribution guidance:
 
 ## MIT License (schema/)
 
-Copyright (c) 2026 UK Climb Survey (howsteep.org)
+Copyright (c) 2026 HowSteep (howsteep.org)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
