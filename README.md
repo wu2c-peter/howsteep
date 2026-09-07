@@ -1,7 +1,8 @@
 # HowSteep
 
 **[howsteep.org](https://howsteep.org)** — reproducible LiDAR gradient
-ladders for road climbs in the UK and New England. Every maximum states
+ladders for road climbs in the UK and the north-eastern United States
+(New England, New Jersey and New York; Pennsylvania in progress). Every maximum states
 its measurement distance, because a hill can honestly be 32% over 2 m
 and 25% over 100 m at once.
 
@@ -36,11 +37,22 @@ point. Spec: [spec/OCL.md](spec/OCL.md) · normative JSON Schema:
 example: any climb page on [howsteep.org](https://howsteep.org) links its
 own OCL document. Comments and implementations welcome — open an issue.
 
+Format changelog (all changes within 0.1.x are additive):
+
+- **2026-09-07** — spec and schema brought level with the live corpus:
+  `provenance.run_id` (opaque batch-run identity, spec section added
+  2026-08-22); per-window lateral-stability fields on ladder entries —
+  `placement_sensitivity_pp`, `estimated_best_pct`,
+  `estimated_range_pct`, `estimate_basis` — recording how much a maximum
+  moves when the measurement line is shifted across the carriageway and
+  the resulting estimate of the true reading. Documents published since
+  30 August carry them.
+
 ## Data & licences
 
 Measurements are derived from open data: national LiDAR programmes of
 all four UK nations (OGL v3), OS Terrain 50 / Open Names / Open Roads
-(OGL v3), USGS 3DEP LiDAR (public domain) with the New England states'
+(OGL v3), USGS 3DEP LiDAR (public domain) with the states'
 road inventories, and OpenStreetMap (ODbL). What the survey publishes,
 you may reuse — the terms are settled:
 

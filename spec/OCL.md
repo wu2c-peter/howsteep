@@ -138,6 +138,15 @@ standard (ranking-eligible) windows needed.
 Extent flags do not affect confidence — they question the climb's
 definition, not the measurement. Rankings SHOULD default to A/B.
 
+### Provenance run identity (added 2026-08-22, additive)
+
+`provenance.run_id` (string, optional): identifier of the batch run
+that produced the document, stamped by the producing pipeline.
+Publishers SHOULD record it so a document's station-level evidence
+remains addressable; consumers MUST NOT assign it meaning beyond
+opaque run identity. Additive within 0.1.x (`provenance` permits
+additional properties).
+
 ## Versioning
 
 Semantic versioning of the format itself, carried in `ocl_version`.
