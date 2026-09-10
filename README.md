@@ -77,7 +77,8 @@ you may reuse — the terms are settled:
 - **the OCL spec** — CC BY 4.0; **the JSON Schema** — MIT;
 - **the site as a whole** (its selection, arrangement and complete
   corpus) — not licensed; for bulk use beyond the ODbL dataset,
-  [ask](../../issues/new/choose).
+  [get in touch](https://howsteep.org/report?private=1) (a private
+  message to the editor; no account needed).
 
 Details and attribution guidance:
 [howsteep.org/licensing.html](https://howsteep.org/licensing.html) ·

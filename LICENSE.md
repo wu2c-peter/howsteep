@@ -22,8 +22,9 @@ different licences:
 Full terms and attribution guidance:
 [howsteep.org/licensing.html](https://howsteep.org/licensing.html).
 
-Questions about licensing or reuse: open an issue at
-[github.com/wu2c-peter/howsteep/issues](https://github.com/wu2c-peter/howsteep/issues).
+Questions about licensing or reuse: [get in touch](https://howsteep.org/report?private=1)
+(a private message to the editor, no account needed), or open an issue at
+[github.com/wu2c-peter/howsteep/issues](https://github.com/wu2c-peter/howsteep/issues) for anything public.
 
 ## MIT License (schema/)
 
