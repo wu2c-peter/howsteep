@@ -20,7 +20,9 @@ of the survey's data.
    thresholds a route must clear to be published: *clean* (a steep 25 m maximum
    with no quality flags), *caveated* (steep but flagged, still plausible),
    *qualified* (a lower bar with the very short windows checked), *endurance*
-   (a long sustained climb), *big-gain* (among the largest rises in its region),
+   (1.5 km or more at 10 percent or more), *sustained* (500 m or more of gain
+   at 5 percent or more overall — the alpine-pass class, added 2026-09-10),
+   *big-gain* (among the largest rises in its region),
    *listed* (named in a recognised source: a guidebook, a championship, a
    record). A route that clears no door is never published.
 3. **Checked against the road authority.** Before adoption a run of checks asks
