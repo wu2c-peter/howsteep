@@ -22,9 +22,12 @@ different licences:
 Full terms and attribution guidance:
 [howsteep.org/licensing.html](https://howsteep.org/licensing.html).
 
+Questions about licensing or reuse: open an issue at
+[github.com/wu2c-peter/howsteep/issues](https://github.com/wu2c-peter/howsteep/issues).
+
 ## MIT License (schema/)
 
-Copyright (c) 2026 HowSteep (howsteep.org)
+Copyright (c) 2026 Peter Hirst
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
