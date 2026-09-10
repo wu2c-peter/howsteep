@@ -1,10 +1,10 @@
 # HowSteep
 
 **[howsteep.org](https://howsteep.org)** — reproducible LiDAR gradient
-ladders for road climbs in the UK and the north-eastern United States
-(New England, New Jersey and New York; Pennsylvania in progress). Every maximum states
-its measurement distance, because a hill can honestly be 32% over 2 m
-and 25% over 100 m at once.
+ladders for road climbs, so far in the UK, the north-eastern United States
+and Hawaii: wherever open 1 m LiDAR and an open road inventory exist, the
+survey can go. Every maximum states its measurement distance, because a hill
+can honestly be 32% over 2 m and 25% over 100 m at once.
 
 This repository is the public face of the project: **corrections,
 local knowledge and photo reports** are collected here as issues.
@@ -26,6 +26,14 @@ Discovered climbs on the site are hypotheses derived from LiDAR terrain
 data and open road datasets. Despite extensive computational
 verification, some can still be artifacts of the terrain model or the
 map — that's exactly what your reports help fix.
+
+**Why isn't my hill ranked?** Every road the survey has ever considered is
+in the [decisions dataset](https://howsteep.org/data/decisions/): published
+and ranked, published but held for a person's look, withdrawn, merged,
+measured but never given a page, or proposed and never measured — each with
+a coded reason and the rule behind it. Look your road up there first; if the
+rule got it wrong, that is exactly what the report form is for. The codes are
+explained in [DECISIONS.md](DECISIONS.md).
 
 ## The OCL format
 
@@ -61,6 +69,11 @@ you may reuse — the terms are settled:
 - **the complete dataset** (CSV and per-climb OCL documents,
   downloadable from [howsteep.org](https://howsteep.org)) — ODbL 1.0
   (attribution + share-alike, as inherited from OpenStreetMap);
+- **the decisions dataset** (every route ever considered, with its reason
+  code; tables and per-state geometry at
+  [howsteep.org/data/decisions](https://howsteep.org/data/decisions/), the
+  full GeoPackage on this repository's [Releases](../../releases) page) —
+  ODbL 1.0; see [DECISIONS.md](DECISIONS.md);
 - **the OCL spec** — CC BY 4.0; **the JSON Schema** — MIT;
 - **the site as a whole** (its selection, arrangement and complete
   corpus) — not licensed; for bulk use beyond the ODbL dataset,
