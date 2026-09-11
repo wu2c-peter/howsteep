@@ -59,7 +59,7 @@ authoritative.
 
 `route_id` — `section/slug@event`; the event is `corpus` for a live page, the
 retire ledger for a withdrawn one, `redirect` for a merge, or the survey run for
-a route that never had a page. `section` (uk / us), `state`, `run`, `stage`
+a route that never had a page. `section` (uk / us / ch), `state` (a US state or a Swiss canton), `run`, `stage`
 (adopted, listed, retired, duplicate, measured, discovered), `status_now`
 (ranked, annex, listed, withdrawn, never-paged, never-measured), `reason_code`
 (one code from the registry), `rule_id` (the survey's internal rule or ruling

@@ -1,8 +1,9 @@
 # HowSteep
 
 **[howsteep.org](https://howsteep.org)** — reproducible LiDAR gradient
-ladders for road climbs, so far in the UK, the north-eastern United States
-and Hawaii: wherever open 1 m LiDAR and an open road inventory exist, the
+ladders for road climbs, so far in the UK, the north-eastern United States,
+Hawaii and Switzerland: wherever open 1 m (or finer) LiDAR and an open road
+inventory exist, the
 survey can go. Every maximum states its measurement distance, because a hill
 can honestly be 32% over 2 m and 25% over 100 m at once.
 
