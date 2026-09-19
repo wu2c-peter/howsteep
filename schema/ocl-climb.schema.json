@@ -151,6 +151,13 @@
         },
         "smoothing": {
           "type": "string"
+        },
+        "run_manifest": {
+          "description": "Optional, additive within 0.1.x (added 2026-09-19). The run that produced this document, as a flat map of strings: the producing software's version-control identity and dirty flag, the analysis version and a digest of the analysis configuration in force, the versions of the numerical libraries, and the identities of the inputs the run read. Absent on documents produced before the manifest existed; consumers MUST treat an absent manifest as unknown provenance detail, never as a claim of reproducibility.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       },
       "additionalProperties": true

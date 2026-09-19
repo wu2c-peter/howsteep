@@ -147,6 +147,29 @@ remains addressable; consumers MUST NOT assign it meaning beyond
 opaque run identity. Additive within 0.1.x (`provenance` permits
 additional properties).
 
+### Provenance run manifest (added 2026-09-19, additive)
+
+`provenance.run_manifest` (object of strings, optional): the run that
+produced the document, in enough detail to find the code and the inputs
+again. Every value is a string; the block is flat and small. Recognised
+keys, none of them required:
+
+| key | what it names |
+|---|---|
+| `manifest_version` | shape of the manifest (`"1"`) |
+| `code_git_sha`, `code_git_dirty` | the producing checkout's commit, and whether its source tree differed from that commit. `code_git_sha: "unknown"` with a `code_git` sentence means the producer was not running from a version-control checkout — it MUST NOT be read as a clean checkout |
+| `analysis_version` | the producing software's release version (the same value as `provenance.analysis_version`) |
+| `analysis_config_digest` | `sha256:<hex>` over the canonical analysis configuration actually in force — window ladder, QA and mask thresholds, sample interval, interpolation |
+| `python`, `numpy`, `rasterio`, `gdal`, `proj`, `pyproj`, `laspy`, `shapely`, `pyosmium`, `libosmium` | versions of the numerical libraries the run linked. An absent key means the library was not part of the run |
+| `region_key`, `crs`, `elevation_provider_key`, `tile_index`, `tile_index_snapshot` | the registry identity, working CRS, elevation provider, and a digest of the tile index the run could see |
+| `road_pbf`, `road_snapshot`, `authority`, `authority_files` | the road-geometry extract and the road-authority dataset(s) the run read |
+| `run_id` | the batch run identity (also carried as `provenance.run_id`) |
+
+Producers SHOULD record every key they can state truthfully and MUST
+omit the rest rather than publish a blank or a guess. Consumers MUST NOT
+infer anything from an absent manifest beyond its absence: documents
+published before 2026-09-19 have none and remain valid.
+
 ## Versioning
 
 Semantic versioning of the format itself, carried in `ocl_version`.
