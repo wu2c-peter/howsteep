@@ -48,6 +48,37 @@ databases, GPS platforms, record adjudications) are *claims*, carried in a
 separate structure with evidence type, source and provenance credibility.
 They are never merged into measured fields.
 
+## Name
+
+`name` is the climb's display name — the string a page's heading shows. It
+is NOT a stable identifier: `slug` is, and the slug never changes when the
+name does. A producer MAY derive `name` from any of:
+
+1. the road or feature's own name (a named pass, a named summit approach,
+   or any climb identified as an already-named feature by route-line
+   distance to an authoritative coordinate);
+2. for a climb running along more than one named street, the OSM street
+   holding the steepest 25 m window, when that street is a real part of
+   the climb (a majority of the window's own length, and at least 20% of
+   the climb's own length on that street) — never for a street that merely
+   crosses or briefly coincides with the line;
+3. for an otherwise-unnamed lane, a name built from the nearest OpenStreetMap
+   place anchor: "Lane near `<place>`", or "`<street>` (`<place>`)" when (2)
+   also names a street for it.
+
+A name derived under (1) from a recognition or identification-certain
+source is never displaced by (2) or (3) once set.
+
+**Open item (draft, not yet normative):** this document does not define a
+field that records which of the above produced a given `name`, or what OSM
+element(s) it came from. Today's reference implementation keeps that
+history only in its own internal override ledger, not in the published OCL
+document — a consumer reading `name` alone cannot tell a recognised pass
+name from a steepest-street or nearest-place name, or audit it against the
+source. A future minor revision should consider a `name_source` (or similar)
+provenance field, analogous to `reported_claims`' `evidence_type`, before
+this draft is finalised.
+
 ## Document structure (informative summary)
 
 Normative schema: [`schema/ocl-climb.schema.json`](../schema/ocl-climb.schema.json).
