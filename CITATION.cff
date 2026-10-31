@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use the HowSteep data or the OpenClimb Ladder (OCL) format, please cite it as below. Licences differ by part: see LICENSE.md."
+title: "HowSteep: LiDAR gradient ladders for road climbs, and the OpenClimb Ladder (OCL) format"
+type: dataset
+authors:
+  - family-names: Hirst
+    given-names: Peter
+version: "0.1.0-draft"
+date-released: "2026-10-31"
+url: "https://howsteep.org"
+repository-code: "https://github.com/wu2c-peter/howsteep"
+license:
+  - CC-BY-4.0
+  - MIT
+  - ODbL-1.0
+keywords:
+  - LiDAR
+  - road gradient
+  - cycling
+  - open data
+  - OpenClimb Ladder
